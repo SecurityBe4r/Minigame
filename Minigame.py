@@ -22,17 +22,17 @@ if answer.lower() == "buy":
     print("-Cat(35 points)")
     answer2 = (input("What would you like to buy? "))
 
-    if answer2.lower() == "Cow":
+    if answer2.lower() == ("cow"):
         count1 = input("How many cows do you want to buy? ")
-        price = int(count1) * 20
+        price1 = int(count1) * 10
 
-        if price < wallet:
-            cow += int(count1)
-            wallet -= int(price)
+        if price1 < wallet:
+            dog += int(count1)
+            wallet -= int(price1)
             print("You bought this many cows: " + str(count1))
             os.execl(sys.executable, sys.executable, *sys.argv)
 
-        elif price > wallet:
+        elif price1 > wallet:
             print("Not enough money!!")
             os.execl(sys.executable, sys.executable, *sys.argv)
 
@@ -86,8 +86,8 @@ if answer.lower() == "dep points":
     if wallet > answer4:
         bank += answer4
         wallet -= answer4    
-        print("Your bank balance: " + bank)
-        print("Your wallet balance: " + wallet)
+        print("Your bank balance: " + str(bank))
+        print("Your wallet balance: " + str(wallet))
         os.execl(sys.executable, sys.executable, *sys.argv)
     elif wallet < answer4:
         print("You dont have enough point for this action")
@@ -132,3 +132,14 @@ if answer.lower() == "bank status":
     print("Your wallet: " + str(wallet))
     print("Your bank account: " + str(bank))
     os.execl(sys.executable, sys.executable, *sys.argv)
+if wallet == 0 and bank == 0:
+    print("!! Game Over !!")
+    game_over = input("Do you want to start over? Yes/No: ")
+    if game_over.lower() == "yes":
+        wallet += 500
+        bank -= bank
+        fish -= fish
+        cow -= cow
+        dog -= dog
+        cat -= cat
+        os.execl(sys.executable, sys.executable, *sys.argv)
